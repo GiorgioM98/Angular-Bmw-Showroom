@@ -27,13 +27,21 @@ export class LoginComponent implements OnInit {
     const password = form.value.password;
     console.log(email, password);
     this.authService.login(email, password).subscribe((data: any) => {
-      console.log(data)
-      const expirationDate = new Date(new Date().getTime() + (+data.expiresIn * 1000))
-      this.authService.createUser(data.email, data.localId, data.idToken, data.expiresIn)
-      localStorage.setItem("user", JSON.stringify(this.authService.user))
-    })
+      console.log(data);
+      const expirationDate = new Date(new Date().getTime() + (+data.expiresIn * 1000));
+      this.authService.createUser(data.email, data.localId, data.idToken, data.expiresIn);
+      localStorage.setItem("user", JSON.stringify(this.authService.user));
+    }, error => {
+      console.log(error);
+      if (error.status === 400) {
+        alert("Email o password non valide!");
+      } else {
+        alert("Si è verificato un errore durante il login");
+      }
+    });
     form.reset();
   }
+
 
 
 

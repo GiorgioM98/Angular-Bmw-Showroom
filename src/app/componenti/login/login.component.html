@@ -20,10 +20,16 @@
   <mat-form-field appearance="fill">
     <mat-label>EMAIL</mat-label>
     <input matInput type="email" name="email" required ngModel>
+    <mat-error *ngIf="loginForm.controls['email']?.invalid && loginForm.controls['email']?.touched">
+      Inserisci un e-mail!
+    </mat-error>
   </mat-form-field>
   <mat-form-field appearance="fill">
     <mat-label>PASSWORD</mat-label>
     <input matInput type="password" name="password" required ngModel>
+    <mat-error *ngIf="loginForm.controls['password']?.invalid && loginForm.controls['password']?.touched">
+      Inserisci una password!
+    </mat-error>
   </mat-form-field>
   <button mat-flat-button class="btn" type="submit" [disabled]="!loginForm.valid">INVIA</button>
 </form>

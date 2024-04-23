@@ -14,7 +14,7 @@ export class AuthService {
   API_KEY = environment.firebaseAPI_Key
   loginUrl = `https://identitytoolkit.googleapis.com/v1/accounts:${this.parteLogin}${this.API_KEY}`
   registerUrl = `https://identitytoolkit.googleapis.com/v1/accounts:${this.parteRegister}${this.API_KEY}`;
-  isLoggedIn = true
+  isLoggedIn = false
   user: User | undefined
 
 
