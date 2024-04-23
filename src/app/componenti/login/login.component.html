@@ -1,0 +1,29 @@
+<mat-toolbar class="toolbar">
+  <button mat-icon-button (click)="onNavigate()" class="example-icon"
+    aria-label="Example icon-button with subscribe icon">
+    <mat-icon><span class="material-symbols-outlined">
+        subscriptions
+      </span></mat-icon>
+  </button>
+  <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+    <mat-icon><span class="material-symbols-outlined">
+        info
+      </span></mat-icon>
+  </button>
+</mat-toolbar>
+
+
+
+<h1 class="form"><strong>SIGN-IN</strong></h1>
+
+<form class="form" #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)">
+  <mat-form-field appearance="fill">
+    <mat-label>EMAIL</mat-label>
+    <input matInput type="email" name="email" required ngModel>
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>PASSWORD</mat-label>
+    <input matInput type="password" name="password" required ngModel>
+  </mat-form-field>
+  <button mat-flat-button class="btn" type="submit" [disabled]="!loginForm.valid">INVIA</button>
+</form>

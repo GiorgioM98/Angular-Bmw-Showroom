@@ -1,0 +1,110 @@
+<mat-toolbar class="toolbar">
+  <button mat-icon-button (click)="onNavigate()" class="example-icon"
+    aria-label="Example icon-button with subscribe icon">
+    <mat-icon><span class="material-symbols-outlined">
+        login
+      </span></mat-icon>
+  </button>
+  <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+    <mat-icon><span class="material-symbols-outlined">
+        info
+      </span></mat-icon>
+  </button>
+</mat-toolbar>
+
+
+
+<h1 class="form"><strong>SIGN-UP</strong></h1>
+
+<form class="form" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+  <mat-form-field appearance="fill">
+    <mat-label>NOME</mat-label>
+    <input matInput type="text" name="nome" formControlName="nome">
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>COGNOME</mat-label>
+    <input matInput type="text" name="cognome" formControlName="cognome">
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>EMAIL</mat-label>
+    <input matInput type="email" name="email" formControlName="email">
+    <p *ngIf="!registerForm.get('email')?.valid && registerForm.get('email')?.touched">Inserisci un e-mail</p>
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>PASSWORD</mat-label>
+    <input matInput type="password" name="password" formControlName="password">
+    <p *ngIf="!registerForm.get('password')?.valid && registerForm.get('password')?.errors?.['minlength']">*La password
+      deve avere almeno 8 caratteri</p>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>NUMERO DI TELEFONO</mat-label>
+    <input matInput type="text" name="numeroTelefono" formControlName="numeroTelefono">
+    <p *ngIf="!registerForm.get('numeroTelefono')?.valid && registerForm.get('numeroTelefono')?.errors?.['maxlength']">
+      *Numero di telefono non valido</p>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>NAZIONE</mat-label>
+    <mat-select name="nazione" name="nazione" formControlName="nazione">
+      <mat-option value="italia">ITALIA</mat-option>
+      <mat-option value="francia">FRANCIA</mat-option>
+      <mat-option value="germania">GERMANIA</mat-option>
+      <mat-option value="svizzera">SVIZZERA</mat-option>
+      <mat-option value="inghilterra">INGHILTERRA</mat-option>
+      <mat-option value="spagna">SPAGNA</mat-option>
+      <mat-option value="america">AMERICA</mat-option>
+      <mat-option value="russia">RUSSIA</mat-option>
+      <mat-option value="giappone">GIAPPONE</mat-option>
+      <mat-option value="cina">CINA</mat-option>
+      <mat-option value="india">INDIA</mat-option>
+      <mat-option value="australia">AUSTRALIA</mat-option>
+      <mat-option value="canada">CANADA</mat-option>
+      <mat-option value="messico">MESSICO</mat-option>
+      <mat-option value="brasile">BRASILE</mat-option>
+      <mat-option value="argentina">ARGENTINA</mat-option>
+      <mat-option value="sudafrica">SUDAFRICA</mat-option>
+      <mat-option value="egitto">EGITTO</mat-option>
+      <mat-option value="grecia">GRECIA</mat-option>
+      <mat-option value="norvegia">NORVEGIA</mat-option>
+      <mat-option value="svezia">SVEZIA</mat-option>
+      <mat-option value="finlandia">FINLANDIA</mat-option>
+      <mat-option value="polonia">POLONIA</mat-option>
+      <mat-option value="portogallo">PORTOGALLO</mat-option>
+      <mat-option value="belgio">BELGIO</mat-option>
+      <mat-option value="olanda">OLANDA</mat-option>
+      <mat-option value="austria">AUSTRIA</mat-option>
+      <mat-option value="ungaria">UNGARIA</mat-option>
+      <mat-option value="repubblica ceca">REPUBBLICA CECA</mat-option>
+      <mat-option value="slovacchia">SLOVACCHIA</mat-option>
+      <mat-option value="croazia">CROAZIA</mat-option>
+      <mat-option value="serbia">SERBIA</mat-option>
+      <mat-option value="romania">ROMANIA</mat-option>
+      <mat-option value="bulgaria">BULGARIA</mat-option>
+      <mat-option value="turchia">TURCHIA</mat-option>
+      <mat-option value="iran">IRAN</mat-option>
+      <mat-option value="iraq">IRAQ</mat-option>
+      <mat-option value="arabia saudita">ARABIA SAUDITA</mat-option>
+      <mat-option value="emirati arabi uniti">EMIRATI ARABI UNITI</mat-option>
+      <mat-option value="qatar">QATAR</mat-option>
+      <mat-option value="oman">OMAN</mat-option>
+      <mat-option value="libano">LIBANO</mat-option>
+      <mat-option value="israele">ISRAELE</mat-option>
+      <mat-option value="jordania">GIORDANIA</mat-option>
+      <mat-option value="libia">LIBIA</mat-option>
+      <mat-option value="marocco">MAROCCO</mat-option>
+      <mat-option value="tunisia">TUNISIA</mat-option>
+      <mat-option value="algeria">ALGERIA</mat-option>
+      <mat-option value="nigeria">NIGERIA</mat-option>
+      <mat-option value="sudan">SUDAN</mat-option>
+      <mat-option value="sudan del sud">SUDAN DEL SUD</mat-option>
+      <mat-option value="etiopia">ETIOPIA</mat-option>
+      <mat-option value="kenya">KENYA</mat-option>
+      <mat-option value="uganda">UGANDA</mat-option>
+      <mat-option value="tanzania">TANZANIA</mat-option>
+      <mat-option value="sudafrica">SUDAFRICA</mat-option>
+      <mat-option value="madagascar">MADAGASCAR</mat-option>
+      <mat-option value="australia">AUSTRALIA</mat-option>
+      <mat-option value="nuova zelanda">NUOVA ZELANDA</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <button mat-flat-button class="btn" type="submit" [disabled]="!registerForm.valid">INVIA</button>
+</form>

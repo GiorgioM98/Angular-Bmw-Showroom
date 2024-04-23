@@ -1,0 +1,29 @@
+<mat-toolbar class="toolbar">
+  <div class="logo">
+  <mat-icon>directions_car</mat-icon>
+  <h1 class="titolo">BMW SHOWROOM</h1>
+  </div>
+  <div class="icone">
+  <button mat-icon-button (click)="onLogout()" aria-label="Example icon-button with share icon">
+    <mat-icon><span class="material-symbols-outlined"> logout </span></mat-icon>
+  </button>
+  <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+    <mat-icon><span class="material-symbols-outlined">
+        info
+      </span></mat-icon>
+  </button>
+</div>
+</mat-toolbar>
+
+<mat-drawer-container class="example-container">
+  <mat-drawer mode="side" opened>
+    <mat-list role="list">
+      <mat-list-item role="listitem" routerLink="/pagina1" routerLinkActive="active">Bmw Models</mat-list-item>
+      <mat-list-item role="listitem" routerLink="/pagina2" routerLinkActive="active">Bmw Photo</mat-list-item>
+      <mat-list-item role="listitem" routerLink="/pagina3" routerLinkActive="active">Pagina 3</mat-list-item>
+    </mat-list>
+  </mat-drawer>
+  <mat-drawer-content>
+    <router-outlet></router-outlet>
+  </mat-drawer-content>
+</mat-drawer-container>

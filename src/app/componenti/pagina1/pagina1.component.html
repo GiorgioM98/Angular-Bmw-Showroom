@@ -1,0 +1,121 @@
+<section>
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+
+    <ng-container matColumnDef="checkbox">
+      <th mat-header-cell *matHeaderCellDef ><button mat-raised-button class="bottoneSeleziona" type="button"(click)="selectAll()">Seleziona tutti</button>
+      </th>
+      <td mat-cell *matCellDef="let modello">
+        <input class="checkbox" type="checkbox" [name]="'checkbox' + modello.id" [value]="modello.id"
+          [checked]="selectedElements.includes(modello.id)" (change)="onSelectedElement(modello.id)">
+      </td>
+    </ng-container>
+
+
+
+    <ng-container matColumnDef="i" class="i">
+      <th mat-header-cell *matHeaderCellDef class="i"> N.</th>
+      <td mat-cell *matCellDef="let i=index" class="i"> {{i+1}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="modello">
+      <th mat-header-cell *matHeaderCellDef> MODELLO </th>
+      <td mat-cell *matCellDef="let modelli"> {{modelli.modello | uppercase}} </td>
+    </ng-container>
+
+
+    <ng-container matColumnDef="alimentazione">
+      <th mat-header-cell *matHeaderCellDef> ALIMENTAZIONE </th>
+      <td mat-cell *matCellDef="let modelli"> {{modelli.alimentazione}} </td>
+    </ng-container>
+
+
+    <ng-container matColumnDef="potenza">
+      <th mat-header-cell *matHeaderCellDef> POTENZA (cavalli) </th>
+      <td mat-cell *matCellDef="let modelli"> {{modelli.potenza}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="cilindrata">
+      <th mat-header-cell *matHeaderCellDef> CILINDRATA </th>
+      <td mat-cell *matCellDef="let modelli"> {{modelli.cilindrata}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="colore">
+      <th mat-header-cell *matHeaderCellDef> COLORE </th>
+      <td mat-cell *matCellDef="let modelli"> {{modelli.colore}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="prezzo">
+      <th mat-header-cell *matHeaderCellDef> PREZZO </th>
+      <td mat-cell *matCellDef="let modelli"> {{modelli.prezzo}} </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+</section>
+
+
+
+
+<form #inputForm="ngForm" (ngSubmit)="onSubmit(inputForm)">
+  <mat-form-field>
+    <mat-label>Modello</mat-label>
+    <input matInput type="text" name="modello" ngModel required>
+    <mat-error *ngIf="inputForm.controls['modello']?.invalid && inputForm.controls['modello']?.touched">
+      Inserisci un modello!
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Alimentazione</mat-label>
+    <mat-select name="alimentazione" ngModel required>
+      <mat-option value="benzina">Benzina</mat-option>
+      <mat-option value="diesel">Diesel</mat-option>
+      <mat-option value="elettrica">Elettrica</mat-option>
+      <mat-option value="ibrida">Ibrida</mat-option>
+    </mat-select>
+    <mat-error *ngIf="inputForm.controls['alimentazione']?.invalid && inputForm.controls['alimentazione']?.touched">
+      Seleziona un alimentazione!
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Potenza Cv</mat-label>
+    <input matInput type="text" name="potenza" ngModel pattern="[0-9]*" required>
+    <mat-error *ngIf="inputForm.controls['potenza']?.invalid && inputForm.controls['potenza']?.touched">
+      Inserisci la potenza! Puo' contenere solo numeri.
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Cilindrata</mat-label>
+    <input matInput type="text" name="cilindrata" ngModel pattern="[0-9]*" required>
+    <mat-error *ngIf="inputForm.controls['cilindrata']?.invalid && inputForm.controls['cilindrata']?.touched">
+      Inserisci la cilindrata! Puo' contenere solo numeri.
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Colore</mat-label>
+    <mat-select name="colore" ngModel required>
+      <mat-option value="blu">Blu</mat-option>
+      <mat-option value="bianco">Bianco</mat-option>
+      <mat-option value="nero">Nero</mat-option>
+      <mat-option value="grigio">Grigio</mat-option>
+      <mat-option value="rosso">Rosso</mat-option>
+    </mat-select>
+    <mat-error *ngIf="inputForm.controls['colore']?.invalid && inputForm.controls['colore']?.touched">
+      Seleziona un colore!
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Prezzo</mat-label>
+    <input matInput type="text" name="prezzo" ngModel pattern="[0-9]*" required>
+    <mat-error *ngIf="inputForm.controls['prezzo']?.invalid && inputForm.controls['prezzo']?.touched">
+      Inserisci il prezzo! Puo' contenere solo numeri.
+    </mat-error>
+  </mat-form-field>
+  <div>
+    <button mat-raised-button type="submit" class="bottoneInvia" color="primary" [disabled]="!inputForm.valid">INVIA</button>
+    <button mat-raised-button class="bottoneModifica" type="button" (click)="onPatchModello(inputForm)">MODIFICA</button>
+
+    <button mat-raised-button color="warn" type="button" (click)="onDeleteModello()">ELIMINA</button>
+  </div>
+</form>
