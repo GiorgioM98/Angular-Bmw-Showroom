@@ -15,7 +15,6 @@ You can view this project online at: https://app-angular-21bc4.web.app/pagina1
 
 This initial Angular project consists of having a SPA where we can display on the first page a list of BMW brand car models, followed by various descriptions such as power supply, power, displacement, color and price.
 On the second page we have a dedicated part with photos of various BMW models on sale in 2023.
-Possibly the SPA is also equipped with a login and logout, temporarily deactivated for obvious reasons.
 
 
 ## Structure
@@ -56,6 +55,7 @@ Auth.guard to implement the registration and sign-in components and finally Fire
 
 
 ## Usability
+To access the platform, registration is required by the user, once registered you will have to log in with your credentials.
 The platform is connected to a Firebase database. Through the input form below we can take the data, view it, modify it and delete it.
 The modification occurs by selecting the element via the checkbox that you want to modify and then inserting the data you want to modify in the desired input.
 Deletion, however, always occurs by selecting the desired element(s) via the checkbox and sending the "Delete" command
