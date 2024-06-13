@@ -2,32 +2,31 @@ table {
   width: 100%;
 }
 
-section{
+section {
   padding: 40px;
 }
 
-.checkbox{
-  margin-left: 5em!important;
+.checkbox {
+  margin-left: 5em !important;
 }
 
-.bottoneSeleziona{
-  margin-left: 1em!important;
-  margin-right: -4em!important;
+.bottoneSeleziona {
+  margin-left: 1em !important;
+  margin-right: -4em !important;
 }
 
-p{
+p {
   color: red;
   font-size: 0.5em;
 }
 
-.bottoneModifica{
-  background-color: green!important;
-  color: white!important;
+.bottoneModifica {
+  background-color: green !important;
+  color: white !important;
   margin-left: 1em;
   margin-right: 1em;
 }
 
-.bottoneInvia{
+.bottoneInvia {
   width: 100px;
 }
-

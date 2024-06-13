@@ -10,26 +10,26 @@ export class FirebaseService {
   constructor(private http: HttpClient, private authService: AuthService) { }
 
 
-  getPersone(url:string){
+  getPersone(url: string) {
     return this.http.get(`${url}?auth=${this.authService.user?.token}`)
   }
 
 
-  insertModello(url:string, body: {}){
-    return this.http.post(url ,body)
+  insertModello(url: string, body: {}) {
+    return this.http.post(url, body)
   }
 
 
-  getModello(url:string){
+  getModello(url: string) {
     return this.http.get(url)
   }
 
-  deleteModello(url:string){
+  deleteModello(url: string) {
     return this.http.delete(url)
   }
 
 
-  patchModello(url:string, body :{}){
+  patchModello(url: string, body: {}) {
     return this.http.patch(url, body)
 
   }

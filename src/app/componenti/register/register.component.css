@@ -10,11 +10,33 @@
 .toolbar {
   background-color: #1f1fa4;
   color: white;
-  justify-content: end;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.titolo {
+  margin-left: 23px;
+  color: white;
+  font-size: 1.2em;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.active {
+  background-color: hsl(240, 100%, 86%);
+}
+
+.imgIcon {
+  width: 40px;
+  height: 40px;
 }
 
 h1 {
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   color: #1f1fa4;
   border: 3px solid #1f1fa4;
   font-size: 30px;

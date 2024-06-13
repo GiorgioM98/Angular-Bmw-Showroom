@@ -1,20 +1,26 @@
-.toolbar{
+.toolbar {
   background-color: #1f1fa4;
   color: white;
   display: flex;
-  justify-content:space-between;
+  justify-content: space-between;
   align-items: center;
 }
 
-.titolo{
+.titolo {
   margin-left: 30px;
+  font-size: 1.2em;
 }
 
-.logo{
+.logo {
   display: flex;
   align-items: center;
 }
 
-.active{
+.active {
   background-color: hsl(240, 100%, 86%);
+}
+
+.imgIcon {
+  width: 40px;
+  height: 40px;
 }

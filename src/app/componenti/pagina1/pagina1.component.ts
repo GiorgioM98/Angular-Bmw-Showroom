@@ -60,7 +60,7 @@ export class Pagina1Component implements OnInit {
     const cilindrata = form.value.cilindrata;
     const colore = form.value.colore;
     const prezzo = form.value.prezzo;
-    this.firebase.insertModello('https://app-angular-21bc4-default-rtdb.firebaseio.com/modelli.json', { modello, alimentazione, potenza, cilindrata, colore, prezzo}).subscribe((data: any) => {
+    this.firebase.insertModello('https://app-angular-21bc4-default-rtdb.firebaseio.com/modelli.json', { modello, alimentazione, potenza, cilindrata, colore, prezzo }).subscribe((data: any) => {
       console.log(data);
       form.reset();
       window.location.reload();
@@ -73,9 +73,9 @@ export class Pagina1Component implements OnInit {
   // }
 
 
-  selectAll(){
-    this.selectedElements= [];
-    this.modelli.forEach(element=>{
+  selectAll() {
+    this.selectedElements = [];
+    this.modelli.forEach(element => {
       this.selectedElements.push(element.id);
       console.log(this.selectedElements);
     })
@@ -100,12 +100,12 @@ export class Pagina1Component implements OnInit {
 
 
   onDeleteModello() {
-    if(this.selectedElements.length === 0) {
+    if (this.selectedElements.length === 0) {
       alert('Seleziona un elemento!');
       return;
     }
-    alert ("Confermi di voler eliminare l'elemento selezionato?");
-    this.selectedElements.forEach(elementId=>{
+    alert("Confermi di voler eliminare l'elemento selezionato?");
+    this.selectedElements.forEach(elementId => {
       const url = `https://app-angular-21bc4-default-rtdb.firebaseio.com/modelli/${elementId}.json`;
       this.firebase.deleteModello(url).subscribe((data: any) => {
         console.log(data);
